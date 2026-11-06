@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge A2 Flyers - Listening Practice</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { color: var(--primary-color); text-align: center; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #64748b; margin-bottom: 30px; }
+        h2 { background: #e0f2fe; color: #0369a1; padding: 12px 15px; border-radius: 6px; margin-top: 35px; font-size: 17px; }
+        .question-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+        .question-box p { margin: 0 0 8px; font-weight: 600; }
+        input[type="text"], select {
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 350px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .audio-box {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        audio { width: 100%; max-width: 400px; }
+        .img-container {
+            text-align: center;
+            margin: 15px 0;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px dashed #cbd5e1;
+        }
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .options-group label {
+            margin-right: 20px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .btn-submit {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover { background-color: #059669; }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+        .correct { color: #065f46; background: #d1fae5; }
+        .incorrect { color: #991b1b; background: #fee2e2; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>A2 Flyers - Listening Practice</h1>
+    <p class="subtitle">Official Cambridge Practice Materials</p>
+
+    <form id="listeningForm" onsubmit="checkListening(event)">
+
+        <!-- PART 1 -->
+        <h2>Part 1 - 5 questions - Listen and draw lines. There is one example.</h2>
+        <div class="audio-box">
+            <p>🎧 <b>Audio Part 1:</b></p>
+            <audio controls><source src="listening_part1.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+        </div>
+        <div class="img-container">
+            <img src="listening_part1.png" alt="Listening Part 1">
+        </div>
+        <div class="question-box"><p><b>1. Sally:</b> <input type="text" id="lp1_q1" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+        <div class="question-box"><p><b>2. Harry:</b> <input type="text" id="lp1_q2" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+        <div class="question-box"><p><b>3. Jane:</b> <input type="text" id="lp1_q3" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+        <div class="question-box"><p><b>4. William:</b> <input type="text" id="lp1_q4" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+        <div class="question-box"><p><b>5. David:</b> <input type="text" id="lp1_q5" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+
+        <!-- PART 2 -->
+        <h2>Part 2 - 5 questions - Listen and write. There is one example. (The Space Club)</h2>
+        <div class="audio-box">
+            <p>🎧 <b>Audio Part 2:</b></p>
+            <audio controls><source src="listening_part2.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+        </div>
+        <div class="img-container">
+            <img src="listening_part2.png" alt="Listening Part 2">
+        </div>
+        <div class="question-box"><p><b>1. Children learn about:</b> the <input type="text" id="lp2_q1" placeholder="Enter answer..." required></p></div>
+        <div class="question-box"><p><b>2. Sometimes they look at:</b> the <input type="text" id="lp2_q2" placeholder="Enter answer..." required></p></div>
+        <div class="question-box"><p><b>3. Children should bring:</b> a <input type="text" id="lp2_q3" placeholder="Enter answer..." required></p></div>
+        <div class="question-box"><p><b>4. If it's cloudy, children watch:</b> <input type="text" id="lp2_q4" placeholder="Enter answer..." required></p></div>
+        <div class="question-box"><p><b>5. Person who sometimes talks to club:</b> Mr <input type="text" id="lp2_q5" placeholder="Enter answer..." required></p></div>
+
+        <!-- PART 3 -->
+        <h2>Part 3 - 5 questions - Where did Uncle Robert get each of these things? Listen and write a letter (A-H).</h2>
+        <div class="audio-box">
+            <p>🎧 <b>Audio Part 3:</b></p>
+            <audio controls><source src="listening_part3.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+        </div>
+        <div class="img-container">
+            <img src="listening_part3.jpg" alt="Listening Part 3">
+        </div>
+        <div class="question-box"><p><b>1. Drums:</b> 
+            <select id="lp3_q1" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+        </p></div>
+        <div class="question-box"><p><b>2. Swan:</b> 
+            <select id="lp3_q2" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+        </p></div>
+        <div class="question-box"><p><b>3. Fan:</b> 
+            <select id="lp3_q3" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+        </p></div>
+        <div class="question-box"><p><b>4. Chocolates:</b> 
+            <select id="lp3_q4" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+        </p></div>
+        <div class="question-box"><p><b>5. Gloves:</b> 
+            <select id="lp3_q5" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+        </p></div>
+
+        <!-- PART 4 -->
+        <h2>Part 4 - 5 questions - Listen and tick (✓) the box.</h2>
+        <div class="audio-box">
+            <p>🎧 <b>Audio Part 4:</b></p>
+            <audio controls><source src="listening_part4.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+        </div>
+        <div class="img-container">
+            <img src="listening_part4.jpg" alt="Listening Part 4">
+        </div>
+        <div class="question-box">
+            <p><b>1. Which museum is Jack's grandma going to work in?</b></p>
+            <div class="options-group">
+                <label><input type="radio" name="lp4_q1" value="A" required> A</label>
+                <label><input type="radio" name="lp4_q1" value="B"> B</label>
+                <label><input type="radio" name="lp4_q1" value="C"> C</label>
+            </div>
+        </div>
+        <div class="question-box">
+            <p><b>2. What does Jack enjoy doing most in museums?</b></p>
+            <div class="options-group">
+                <label><input type="radio" name="lp4_q2" value="A" required> A</label>
+                <label><input type="radio" name="lp4_q2" value="B"> B</label>
+                <label><input type="radio" name="lp4_q2" value="C"> C</label>
+            </div>
+        </div>
+        <div class="question-box">
+            <p><b>3. What is the most interesting thing in the museum?</b></p>
+            <div class="options-group">
+                <label><input type="radio" name="lp4_q3" value="A" required> A</label>
+                <label><input type="radio" name="lp4_q3" value="B"> B</label>
+                <label><input type="radio" name="lp4_q3" value="C"> C</label>
+            </div>
+        </div>
+        <div class="question-box">
+            <p><b>4. What is Jack's grandma going to do in the museum?</b></p>
+            <div class="options-group">
+                <label><input type="radio" name="lp4_q4" value="A" required> A</label>
+                <label><input type="radio" name="lp4_q4" value="B"> B</label>
+                <label><input type="radio" name="lp4_q4" value="C"> C</label>
+            </div>
+        </div>
+        <div class="question-box">
+            <p><b>5. How will Jack's grandma get to work?</b></p>
+            <div class="options-group">
+                <label><input type="radio" name="lp4_q5" value="A" required> A</label>
+                <label><input type="radio" name="lp4_q5" value="B"> B</label>
+                <label><input type="radio" name="lp4_q5" value="C"> C</label>
+            </div>
+        </div>
+
+        <!-- PART 5 -->
+        <h2>Part 5 - 5 questions - Listen and colour and write.</h2>
+        <div class="audio-box">
+            <p>🎧 <b>Audio Part 5:</b></p>
+            <audio controls><source src="listening_part5.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+        </div>
+        <div class="img-container">
+            <img src="listening_part5.png" alt="Listening Part 5">
+        </div>
+        <div class="question-box"><p><b>1. Colour the ... on the hotel:</b> <input type="text" id="lp5_q1" placeholder="Nhập màu sắc..." required></p></div>
+        <div class="question-box"><p><b>2. Colour the smaller flag:</b> <input type="text" id="lp5_q2" placeholder="Nhập màu sắc..." required></p></div>
+        <div class="question-box"><p><b>3. Colour the trousers of the boy running:</b> <input type="text" id="lp5_q3" placeholder="Nhập màu sắc..." required></p></div>
+        <div class="question-box"><p><b>4. Write a word on the sign:</b> <input type="text" id="lp5_q4" placeholder="Nhập từ cần viết..." required></p></div>
+        <div class="question-box"><p><b>5. Colour the jacket of the man in the boat:</b> <input type="text" id="lp5_q5" placeholder="Nhập màu sắc..." required></p></div>
+
+        <button type="submit" class="btn-submit">Nộp bài kiểm tra Listening</button>
+    </form>
+    <div id="listeningResult" class="result-box"></div>
+</div>
+
+<script>
+    function checkListening(event) {
+        event.preventDefault();
+        let score = 0;
+        let total = 25;
+
+        // Đáp án tham khảo mẫu (có thể điều chỉnh khớp với file audio thực tế của đề)
+        // Part 1
+        const p1_ans = ['girl sitting', 'woman', 'boy with helicopter', 'man reading', 'boy drinking']; // Tên định danh minh họa
+        // Part 2
+        const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
+        // Part 3
+        const p3_ans = ['h', 'c', 'g', 'd', 'b']; // A-H cho Part 3
+        // Part 4
+        const p4_ans = ['b', 'a', 'c', 'b', 'a']; // A-C cho Part 4
+        // Part 5
+        const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
+
+        // Kiểm tra Part 1 (Mang tính chất gợi ý tương đối vì học sinh nghe nối hình)
+        for(let i=1; i<=5; i++) {
+            if(document.getElementById('lp1_q'+i).value.trim() !== "") score++;
+        }
+        // Part 2
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
+            if(val.includes(p2_ans[i-1])) score++;
+        }
+        // Part 3
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
+            if(val === p3_ans[i-1]) score++;
+        }
+        // Part 4
+        for(let i=1; i<=5; i++) {
+            let radios = document.getElementsByName('lp4_q'+i);
+            for(let r of radios) {
+                if(r.checked && r.value.toLowerCase() === p4_ans[i-1]) {
+                    score++;
+                }
+            }
+        }
+        // Part 5
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
+            if(val.includes(p5_ans[i-1])) score++;
+        }
+
+        const resBox = document.getElementById('listeningResult');
+        resBox.style.display = 'block';
+        resBox.className = 'result-box ' + (score >= 18 ? 'correct' : 'incorrect');
+        resBox.innerHTML = `Kết quả bài Listening của bạn: Đạt khoảng <b>${score}</b> / ${total} câu đúng. Hãy tiếp tục luyện nghe thêm nhé!`;
+    }
+</script>
+
+</body>
+</html>
