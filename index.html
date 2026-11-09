@@ -117,10 +117,15 @@
         <div class="img-container">
             <img src="listening_part1A.png" alt="Listening Part 1">
         </div>
-        <div class="question-box"><p><b>1. William:</b> <input type="text" id="lp1_q1" placeholder="Enter number (1-9)..." required></p></div>
-        <div class="question-box"><p><b>2. David:</b> <input type="text" id="lp1_q2" placeholder="Enter number (1-9)..." required></p></div>
-        <div class="question-box"><p><b>3. Sarah:</b> <input type="text" id="lp1_q3" placeholder="Enter number (1-9)..." required></p></div>
-        <div class="question-box"><p><b>4. Richard:</b> <input type="text" id="lp1_q4" placeholder="Enter number (1-9)..." required></p></div>
+        
+        <div class="question-box">
+            <p><b>Example:</b> William 👉 <b>(Đã nối sẵn trên hình)</b></p>
+        </div>
+        <div class="question-box"><p><b>Question 1 (Person number 1 / position 1):</b></p><select class="p1-select" id="lp1_q1" onchange="updatePart1Options()" required></select></div>
+        <div class="question-box"><p><b>Question 2:</b></p><select class="p1-select" id="lp1_q2" onchange="updatePart1Options()" required></select></div>
+        <div class="question-box"><p><b>Question 3:</b></p><select class="p1-select" id="lp1_q3" onchange="updatePart1Options()" required></select></div>
+        <div class="question-box"><p><b>Question 4:</b></p><select class="p1-select" id="lp1_q4" onchange="updatePart1Options()" required></select></div>
+        <div class="question-box"><p><b>Question 5:</b></p><select class="p1-select" id="lp1_q5" onchange="updatePart1Options()" required></select></div>
 
         <!-- PART 2 -->
         <h2>Part 2 - 5 questions - Listen and write. There is one example.</h2>
@@ -225,55 +230,4 @@
         <div class="question-box"><p><b>2. Colour the smaller flag:</b> <input type="text" id="lp5_q2" placeholder="Nhập màu sắc..." required></p></div>
         <div class="question-box"><p><b>3. Colour the trousers of the boy running:</b> <input type="text" id="lp5_q3" placeholder="Nhập màu sắc..." required></p></div>
         <div class="question-box"><p><b>4. Write a word on the sign:</b> <input type="text" id="lp5_q4" placeholder="Nhập từ cần viết..." required></p></div>
-        <div class="question-box"><p><b>5. Colour the jacket of the man in the boat:</b> <input type="text" id="lp5_q5" placeholder="Nhập màu sắc..." required></p></div>
-
-        <button type="submit" class="btn-submit">Nộp bài kiểm tra Listening</button>
-    </form>
-    <div id="listeningResult" class="result-box"></div>
-</div>
-
-<script>
-    function checkListening(event) {
-        event.preventDefault();
-        let score = 0;
-        let total = 24;
-
-        const p1_ans = ['4', '5', '8', '9']; // Đáp án số thứ tự tương ứng ví dụ William, David, Sarah, Richard
-        const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
-        const p3_ans = ['h', 'c', 'g', 'd', 'b']; 
-        const p4_ans = ['b', 'a', 'c', 'b', 'a']; 
-        const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
-
-        for(let i=1; i<=4; i++) {
-            if(document.getElementById('lp1_q'+i).value.trim() !== "") score++;
-        }
-        for(let i=1; i<=5; i++) {
-            let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
-            if(val.includes(p2_ans[i-1])) score++;
-        }
-        for(let i=1; i<=5; i++) {
-            let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
-            if(val === p3_ans[i-1]) score++;
-        }
-        for(let i=1; i<=5; i++) {
-            let radios = document.getElementsByName('lp4_q'+i);
-            for(let r of radios) {
-                if(r.checked && r.value.toLowerCase() === p4_ans[i-1]) {
-                    score++;
-                }
-            }
-        }
-        for(let i=1; i<=5; i++) {
-            let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
-            if(val.includes(p5_ans[i-1])) score++;
-        }
-
-        const resBox = document.getElementById('listeningResult');
-        resBox.style.display = 'block';
-        resBox.className = 'result-box ' + (score >= 18 ? 'correct' : 'incorrect');
-        resBox.innerHTML = `Kết quả bài Listening của bạn: Đạt khoảng <b>${score}</b> / ${total} câu đúng. Hãy tiếp tục luyện nghe thêm nhé!`;
-    }
-</script>
-
-</body>
-</html>
+        <div class="question-box"><p><b>5. Colour
