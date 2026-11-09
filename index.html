@@ -69,6 +69,37 @@
             height: auto;
             border-radius: 6px;
         }
+        
+        /* Bảng 2 cột chuẩn cho Part 1 */
+        .part1-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+        .part1-table th, .part1-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+        .part1-table th {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .part1-table select {
+            max-width: 100%;
+        }
+        .part1-table input[type="text"] {
+            max-width: 100%;
+            text-align: center;
+        }
+
         .options-group label {
             margin-right: 20px;
             font-weight: normal;
@@ -120,12 +151,38 @@
         
         <div class="question-box">
             <p><b>Example:</b> William 👉 <b>(Đã nối sẵn trên hình)</b></p>
+            
+            <table class="part1-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Names (Select Name)</th>
+                        <th style="width: 50%;">Numbers (Type number 1-9)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><select class="p1-name-select" id="lp1_name_1" onchange="updatePart1Options()" required></select></td>
+                        <td><input type="text" id="lp1_num_1" placeholder="Nhập số từ hình..." required></td>
+                    </tr>
+                    <tr>
+                        <td><select class="p1-name-select" id="lp1_name_2" onchange="updatePart1Options()" required></select></td>
+                        <td><input type="text" id="lp1_num_2" placeholder="Nhập số từ hình..." required></td>
+                    </tr>
+                    <tr>
+                        <td><select class="p1-name-select" id="lp1_name_3" onchange="updatePart1Options()" required></select></td>
+                        <td><input type="text" id="lp1_num_3" placeholder="Nhập số từ hình..." required></td>
+                    </tr>
+                    <tr>
+                        <td><select class="p1-name-select" id="lp1_name_4" onchange="updatePart1Options()" required></select></td>
+                        <td><input type="text" id="lp1_num_4" placeholder="Nhập số từ hình..." required></td>
+                    </tr>
+                    <tr>
+                        <td><select class="p1-name-select" id="lp1_name_5" onchange="updatePart1Options()" required></select></td>
+                        <td><input type="text" id="lp1_num_5" placeholder="Nhập số từ hình..." required></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="question-box"><p><b>Question 1 (Person number 1 / position 1):</b></p><select class="p1-select" id="lp1_q1" onchange="updatePart1Options()" required></select></div>
-        <div class="question-box"><p><b>Question 2:</b></p><select class="p1-select" id="lp1_q2" onchange="updatePart1Options()" required></select></div>
-        <div class="question-box"><p><b>Question 3:</b></p><select class="p1-select" id="lp1_q3" onchange="updatePart1Options()" required></select></div>
-        <div class="question-box"><p><b>Question 4:</b></p><select class="p1-select" id="lp1_q4" onchange="updatePart1Options()" required></select></div>
-        <div class="question-box"><p><b>Question 5:</b></p><select class="p1-select" id="lp1_q5" onchange="updatePart1Options()" required></select></div>
 
         <!-- PART 2 -->
         <h2>Part 2 - 5 questions - Listen and write. There is one example.</h2>
@@ -230,4 +287,86 @@
         <div class="question-box"><p><b>2. Colour the smaller flag:</b> <input type="text" id="lp5_q2" placeholder="Nhập màu sắc..." required></p></div>
         <div class="question-box"><p><b>3. Colour the trousers of the boy running:</b> <input type="text" id="lp5_q3" placeholder="Nhập màu sắc..." required></p></div>
         <div class="question-box"><p><b>4. Write a word on the sign:</b> <input type="text" id="lp5_q4" placeholder="Nhập từ cần viết..." required></p></div>
-        <div class="question-box"><p><b>5. Colour
+        <div class="question-box"><p><b>5. Colour the jacket of the man in the boat:</b> <input type="text" id="lp5_q5" placeholder="Nhập màu sắc..." required></p></div>
+
+        <button type="submit" class="btn-submit">Nộp bài kiểm tra Listening</button>
+    </form>
+    <div id="listeningResult" class="result-box"></div>
+</div>
+
+<script>
+    // Danh sách 6 lựa chọn tên cho Part 1
+    const part1Names = ["Sally", "Harry", "Jane", "David", "Sarah", "Richard"];
+
+    function updatePart1Options() {
+        const selects = document.querySelectorAll('.p1-name-select');
+        let selectedValues = Array.from(selects).map(s => s.value).filter(v => v !== "");
+
+        selects.forEach(select => {
+            let currentValue = select.value;
+            let html = '<option value="">-- Choose Name --</option>';
+            
+            part1Names.forEach(name => {
+                if (!selectedValues.includes(name) || currentValue === name) {
+                    let selectedAttr = (currentValue === name) ? 'selected' : '';
+                    html += `<option value="${name}" ${selectedAttr}>${name}</option>`;
+                }
+            });
+            select.innerHTML = html;
+        });
+    }
+
+    window.onload = function() {
+        updatePart1Options();
+    };
+
+    function checkListening(event) {
+        event.preventDefault();
+        let score = 0;
+        let total = 25; // 5 (Part 1) + 5 (Part 2) + 5 (Part 3) + 5 (Part 4) + 5 (Part 5)
+
+        const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
+        const p3_ans = ['h', 'c', 'g', 'd', 'b']; 
+        const p4_ans = ['b', 'a', 'c', 'b', 'a']; 
+        const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
+
+        // Kiểm tra Part 1 (5 hàng tương ứng 5 cặp Name & Number)
+        for(let i=1; i<=5; i++) {
+            let nameVal = document.getElementById('lp1_name_'+i).value;
+            let numVal = document.getElementById('lp1_num_'+i).value.trim();
+            if(nameVal !== "" && numVal !== "") score++;
+        }
+        // Part 2
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
+            if(val.includes(p2_ans[i-1])) score++;
+        }
+        // Part 3
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
+            if(val === p3_ans[i-1]) score++;
+        }
+        // Part 4
+        for(let i=1; i<=5; i++) {
+            let radios = document.getElementsByName('lp4_q'+i);
+            for(let r of radios) {
+                if(r.checked && r.value.toLowerCase() === p4_ans[i-1]) {
+                    score++;
+                }
+            }
+        }
+        // Part 5
+        for(let i=1; i<=5; i++) {
+            let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
+            if(val.includes(p5_ans[i-1])) score++;
+        }
+
+        const resBox = document.getElementById('listeningResult');
+        resBox.style.display = 'block';
+        resBox.className = 'result-box ' + (score >= 18 ? 'correct' : 'incorrect');
+        resBox.innerHTML = `Kết quả bài Listening của bạn: Đạt khoảng <b>${score}</b> / ${total} câu đúng. Tuyệt vời!`;
+    }
+</script>
+
+</body>
+</html>
