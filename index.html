@@ -43,7 +43,6 @@
             border: 1px solid #cbd5e1;
             border-radius: 6px;
             width: 100%;
-            max-width: 350px;
             font-size: 14px;
             font-family: inherit;
         }
@@ -70,8 +69,8 @@
             border-radius: 6px;
         }
         
-        /* Bảng 2 cột chuẩn cho Part 1 */
-        .part1-table {
+        /* Bảng chuẩn 2 cột không bị lẹm */
+        .standard-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
@@ -80,24 +79,17 @@
             overflow: hidden;
             border: 1px solid #cbd5e1;
         }
-        .part1-table th, .part1-table td {
+        .standard-table th, .standard-table td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
             vertical-align: middle;
         }
-        .part1-table th {
+        .standard-table th {
             background: #e0f2fe;
             color: #0369a1;
             font-weight: bold;
             font-size: 15px;
-        }
-        .part1-table select {
-            max-width: 100%;
-        }
-        .part1-table input[type="text"] {
-            max-width: 100%;
-            text-align: center;
         }
 
         .options-group label {
@@ -121,14 +113,14 @@
         .btn-submit:hover { background-color: #059669; }
         .result-box {
             margin-top: 20px;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
-            font-weight: bold;
-            text-align: center;
+            font-size: 15px;
             display: none;
         }
-        .correct { color: #065f46; background: #d1fae5; }
-        .incorrect { color: #991b1b; background: #fee2e2; }
+        .correct-summary { color: #065f46; background: #d1fae5; border: 1px solid #a7f3d0; }
+        .incorrect-summary { color: #991b1b; background: #fee2e2; border: 1px solid #fecaca; }
+        .feedback-item { margin-bottom: 6px; }
     </style>
 </head>
 <body>
@@ -150,9 +142,8 @@
         </div>
         
         <div class="question-box">
-            <p><b>Example:</b> William 👉 <b>(Đã nối sẵn trên hình)</b></p>
-            
-            <table class="part1-table">
+            <p><b>Example:</b> William 👉 <b>(Đã nối sẵn trên hình - Số 6)</b></p>
+            <table class="standard-table">
                 <thead>
                     <tr>
                         <th style="width: 50%;">Names (Select Name)</th>
@@ -209,19 +200,19 @@
             <img src="listening_part3.png" alt="Listening Part 3">
         </div>
         <div class="question-box"><p><b>1. Drums:</b> 
-            <select id="lp3_q1" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+            <select class="p3-select" id="lp3_q1" onchange="updatePart3Options()" required></select>
         </p></div>
         <div class="question-box"><p><b>2. Swan:</b> 
-            <select id="lp3_q2" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+            <select class="p3-select" id="lp3_q2" onchange="updatePart3Options()" required></select>
         </p></div>
         <div class="question-box"><p><b>3. Fan:</b> 
-            <select id="lp3_q3" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+            <select class="p3-select" id="lp3_q3" onchange="updatePart3Options()" required></select>
         </p></div>
         <div class="question-box"><p><b>4. Chocolates:</b> 
-            <select id="lp3_q4" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+            <select class="p3-select" id="lp3_q4" onchange="updatePart3Options()" required></select>
         </p></div>
         <div class="question-box"><p><b>5. Gloves:</b> 
-            <select id="lp3_q5" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
+            <select class="p3-select" id="lp3_q5" onchange="updatePart3Options()" required></select>
         </p></div>
 
         <!-- PART 4 -->
@@ -283,13 +274,41 @@
         <div class="img-container">
             <img src="listening_part5.png" alt="Listening Part 5">
         </div>
-        <div class="question-box"><p><b>1. Colour the ... on the hotel:</b> <input type="text" id="lp5_q1" placeholder="Nhập màu sắc..." required></p></div>
-        <div class="question-box"><p><b>2. Colour the smaller flag:</b> <input type="text" id="lp5_q2" placeholder="Nhập màu sắc..." required></p></div>
-        <div class="question-box"><p><b>3. Colour the trousers of the boy running:</b> <input type="text" id="lp5_q3" placeholder="Nhập màu sắc..." required></p></div>
-        <div class="question-box"><p><b>4. Write a word on the sign:</b> <input type="text" id="lp5_q4" placeholder="Nhập từ cần viết..." required></p></div>
-        <div class="question-box"><p><b>5. Colour the jacket of the man in the boat:</b> <input type="text" id="lp5_q5" placeholder="Nhập màu sắc..." required></p></div>
+        <div class="question-box">
+            <p><b>Nhìn hình và hoàn thành bảng ghi chú tô màu/viết chữ theo yêu cầu bài nghe:</b></p>
+            <table class="standard-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Objects (Tên đồ vật/vị trí)</th>
+                        <th style="width: 50%;">Colors / Words (Màu sắc hoặc từ viết)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>1. Suitcase on ground by hotel entrance</b></td>
+                        <td><input type="text" id="lp5_q1" placeholder="Nhập màu..." required></td>
+                    </tr>
+                    <tr>
+                        <td><b>2. Board on front of boat</b></td>
+                        <td><input type="text" id="lp5_q2" placeholder="Nhập chữ viết..." required></td>
+                    </tr>
+                    <tr>
+                        <td><b>3. Pocket on backpack</b></td>
+                        <td><input type="text" id="lp5_q3" placeholder="Nhập màu..." required></td>
+                    </tr>
+                    <tr>
+                        <td><b>4. Board above hotel</b></td>
+                        <td><input type="text" id="lp5_q4" placeholder="Nhập chữ viết..." required></td>
+                    </tr>
+                    <tr>
+                        <td><b>5. Flag in park by path</b></td>
+                        <td><input type="text" id="lp5_q5" placeholder="Nhập màu..." required></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <button type="submit" class="btn-submit">Nộp bài kiểm tra Listening</button>
+        <button type="submit" class="btn-submit">Nộp bài & Xem đáp án chi tiết</button>
     </form>
     <div id="listeningResult" class="result-box"></div>
 </div>
@@ -297,15 +316,15 @@
 <script>
     // Danh sách 6 lựa chọn tên cho Part 1
     const part1Names = ["Sally", "Harry", "Jane", "David", "Sarah", "Richard"];
+    // Danh sách đáp án A-H cho Part 3 (trừ E đã dùng ở Example)
+    const part3Letters = ["A", "B", "C", "D", "F", "G", "H"]; // E đã dùng làm ví dụ
 
     function updatePart1Options() {
         const selects = document.querySelectorAll('.p1-name-select');
         let selectedValues = Array.from(selects).map(s => s.value).filter(v => v !== "");
-
         selects.forEach(select => {
             let currentValue = select.value;
             let html = '<option value="">-- Choose Name --</option>';
-            
             part1Names.forEach(name => {
                 if (!selectedValues.includes(name) || currentValue === name) {
                     let selectedAttr = (currentValue === name) ? 'selected' : '';
@@ -316,55 +335,104 @@
         });
     }
 
+    function updatePart3Options() {
+        const selects = document.querySelectorAll('.p3-select');
+        let selectedValues = Array.from(selects).map(s => s.value).filter(v => v !== "");
+        selects.forEach(select => {
+            let currentValue = select.value;
+            let html = '<option value="">-- Choose (A-H) --</option>';
+            part3Letters.forEach(letter => {
+                if (!selectedValues.includes(letter) || currentValue === letter) {
+                    let selectedAttr = (currentValue === letter) ? 'selected' : '';
+                    html += `<option value="${letter}" ${selectedAttr}>${letter}</option>`;
+                }
+            });
+            select.innerHTML = html;
+        });
+    }
+
     window.onload = function() {
         updatePart1Options();
+        updatePart3Options();
     };
 
     function checkListening(event) {
         event.preventDefault();
         let score = 0;
-        let total = 25; // 5 (Part 1) + 5 (Part 2) + 5 (Part 3) + 5 (Part 4) + 5 (Part 5)
+        let total = 25;
+        let feedbackHTML = "";
 
-        const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
-        const p3_ans = ['h', 'c', 'g', 'd', 'b']; 
-        const p4_ans = ['b', 'a', 'c', 'b', 'a']; 
-        const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
+        // Đáp án chuẩn từ Marking Key Cambridge
+        const p1_ans = [
+            {name: 'Richard', num: '9'},
+            {name: 'Sally', num: '1'},
+            {name: 'David', num: '5'},
+            {name: 'Sarah', num: '8'},
+            {name: 'Harry', num: '6'}
+        ]; // Tương ứng thứ tự 5 câu hỏi dựa trên vị trí chuẩn trong đề
+        
+        const p2_ans = ['stars', 'moon', 'torch', 'dvd', 'bailey']; 
+        const p3_ans = ['b', 'g', 'h', 'f', 'd']; // Drums: B, Swan: G, Fan: H, Chocolates: F, Gloves: D
+        const p4_ans = ['c', 'b', 'b', 'a', 'c']; 
+        const p5_ans = ['blue', 'sunny', 'orange', 'star', 'yellow'];
 
-        // Kiểm tra Part 1 (5 hàng tương ứng 5 cặp Name & Number)
+        // Chấm Part 1
+        let p1_score = 0;
         for(let i=1; i<=5; i++) {
-            let nameVal = document.getElementById('lp1_name_'+i).value;
+            let nVal = document.getElementById('lp1_name_'+i).value.trim().toLowerCase();
             let numVal = document.getElementById('lp1_num_'+i).value.trim();
-            if(nameVal !== "" && numVal !== "") score++;
+            // So khớp tên và số theo đáp án chuẩn
+            if(nVal === p1_ans[i-1].name.toLowerCase() && numVal === p1_ans[i-1].num) {
+                p1_score++;
+            }
         }
-        // Part 2
+        score += p1_score;
+        feedbackHTML += `<div class="feedback-item"><b>Part 1:</b> Đúng ${p1_score}/5 câu. (Đáp án mẫu: Richard-9, Sally-1, David-5, Sarah-8, Harry-6)</div>`;
+
+        // Chấm Part 2
+        let p2_score = 0;
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
-            if(val.includes(p2_ans[i-1])) score++;
+            if(val.includes(p2_ans[i-1])) p2_score++;
         }
-        // Part 3
+        score += p2_score;
+        feedbackHTML += `<div class="feedback-item"><b>Part 2:</b> Đúng ${p2_score}/5 câu. (Đáp án: 1. stars, 2. moon, 3. torch, 4. DVD(s), 5. Bailey)</div>`;
+
+        // Chấm Part 3
+        let p3_score = 0;
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
-            if(val === p3_ans[i-1]) score++;
+            if(val === p3_ans[i-1]) p3_score++;
         }
-        // Part 4
+        score += p3_score;
+        feedbackHTML += `<div class="feedback-item"><b>Part 3:</b> Đúng ${p3_score}/5 câu. (Đáp án: Drums-B, Swan-G, Fan-H, Chocolates-F, Gloves-D)</div>`;
+
+        // Chấm Part 4
+        let p4_score = 0;
         for(let i=1; i<=5; i++) {
             let radios = document.getElementsByName('lp4_q'+i);
             for(let r of radios) {
                 if(r.checked && r.value.toLowerCase() === p4_ans[i-1]) {
-                    score++;
+                    p4_score++;
                 }
             }
         }
-        // Part 5
+        score += p4_score;
+        feedbackHTML += `<div class="feedback-item"><b>Part 4:</b> Đúng ${p4_score}/5 câu. (Đáp án: 1. C, 2. B, 3. B, 4. A, 5. C)</div>`;
+
+        // Chấm Part 5
+        let p5_score = 0;
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
-            if(val.includes(p5_ans[i-1])) score++;
+            if(val.includes(p5_ans[i-1])) p5_score++;
         }
+        score += p5_score;
+        feedbackHTML += `<div class="feedback-item"><b>Part 5:</b> Đúng ${p5_score}/5 câu. (Đáp án: 1. blue, 2. SUNNY, 3. orange, 4. STAR, 5. yellow)</div>`;
 
         const resBox = document.getElementById('listeningResult');
         resBox.style.display = 'block';
-        resBox.className = 'result-box ' + (score >= 18 ? 'correct' : 'incorrect');
-        resBox.innerHTML = `Kết quả bài Listening của bạn: Đạt khoảng <b>${score}</b> / ${total} câu đúng. Tuyệt vời!`;
+        resBox.className = 'result-box ' + (score >= 20 ? 'correct-summary' : 'incorrect-summary');
+        resBox.innerHTML = `<h3>📊 Tổng kết kết quả Listening: Đạt <b>${score}</b> / ${total} câu đúng</h3>` + feedbackHTML;
     }
 </script>
 
