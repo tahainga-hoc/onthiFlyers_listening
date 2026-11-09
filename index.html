@@ -124,7 +124,7 @@
         <div class="question-box"><p><b>5. David:</b> <input type="text" id="lp1_q5" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
 
         <!-- PART 2 -->
-        <h2>Part 2 - 5 questions - Listen and write. There is one example. (The Space Club)</h2>
+        <h2>Part 2 - 5 questions - Listen and write. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 2:</b></p>
             <audio controls><source src="listening_part2.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
@@ -139,13 +139,13 @@
         <div class="question-box"><p><b>5. Person who sometimes talks to club:</b> Mr <input type="text" id="lp2_q5" placeholder="Enter answer..." required></p></div>
 
         <!-- PART 3 -->
-        <h2>Part 3 - 5 questions - Where did Uncle Robert get each of these things? Listen and write a letter (A-H).</h2>
+        <h2>Part 3 - 5 questions - Where did Uncle Robert get each of these things? Listen and write a letter in each box. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 3:</b></p>
             <audio controls><source src="listening_part3.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
         </div>
         <div class="img-container">
-            <img src="listening_part3.jpg" alt="Listening Part 3">
+            <img src="listening_part3.png" alt="Listening Part 3">
         </div>
         <div class="question-box"><p><b>1. Drums:</b> 
             <select id="lp3_q1" required><option value="">-- Choose (A-H) --</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option></select>
@@ -164,13 +164,13 @@
         </p></div>
 
         <!-- PART 4 -->
-        <h2>Part 4 - 5 questions - Listen and tick (✓) the box.</h2>
+        <h2>Part 4 - 5 questions - Listen and tick the box. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 4:</b></p>
             <audio controls><source src="listening_part4.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
         </div>
         <div class="img-container">
-            <img src="listening_part4.jpg" alt="Listening Part 4">
+            <img src="listening_part4.png" alt="Listening Part 4">
         </div>
         <div class="question-box">
             <p><b>1. Which museum is Jack's grandma going to work in?</b></p>
@@ -214,7 +214,7 @@
         </div>
 
         <!-- PART 5 -->
-        <h2>Part 5 - 5 questions - Listen and colour and write.</h2>
+        <h2>Part 5 - 5 questions - Listen and color and write. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 5:</b></p>
             <audio controls><source src="listening_part5.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
@@ -239,33 +239,22 @@
         let score = 0;
         let total = 25;
 
-        // Đáp án tham khảo mẫu (có thể điều chỉnh khớp với file audio thực tế của đề)
-        // Part 1
-        const p1_ans = ['girl sitting', 'woman', 'boy with helicopter', 'man reading', 'boy drinking']; // Tên định danh minh họa
-        // Part 2
         const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
-        // Part 3
-        const p3_ans = ['h', 'c', 'g', 'd', 'b']; // A-H cho Part 3
-        // Part 4
-        const p4_ans = ['b', 'a', 'c', 'b', 'a']; // A-C cho Part 4
-        // Part 5
+        const p3_ans = ['h', 'c', 'g', 'd', 'b']; 
+        const p4_ans = ['b', 'a', 'c', 'b', 'a']; 
         const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
 
-        // Kiểm tra Part 1 (Mang tính chất gợi ý tương đối vì học sinh nghe nối hình)
         for(let i=1; i<=5; i++) {
             if(document.getElementById('lp1_q'+i).value.trim() !== "") score++;
         }
-        // Part 2
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
             if(val.includes(p2_ans[i-1])) score++;
         }
-        // Part 3
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
             if(val === p3_ans[i-1]) score++;
         }
-        // Part 4
         for(let i=1; i<=5; i++) {
             let radios = document.getElementsByName('lp4_q'+i);
             for(let r of radios) {
@@ -274,7 +263,6 @@
                 }
             }
         }
-        // Part 5
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
             if(val.includes(p5_ans[i-1])) score++;
