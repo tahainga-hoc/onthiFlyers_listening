@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +43,7 @@
             border: 1px solid #cbd5e1;
             border-radius: 6px;
             width: 100%;
+            box-sizing: border-box; /* Chống lẹm viền */
             font-size: 14px;
             font-family: inherit;
         }
@@ -84,6 +85,7 @@
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
             vertical-align: middle;
+            box-sizing: border-box;
         }
         .standard-table th {
             background: #e0f2fe;
@@ -135,41 +137,41 @@
         <h2>Part 1 - 5 questions - Listen and write the correct numbers to match the names. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 1:</b></p>
-            <audio controls><source src="listening_part1.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+            <audio controls><source src="listening_part1.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
         </div>
         <div class="img-container">
             <img src="listening_part1A.png" alt="Listening Part 1">
         </div>
         
         <div class="question-box">
-            <p><b>Example:</b> William 👉 <b>(Đã nối sẵn trên hình - Số 6)</b></p>
+            <p><b>Example:</b> William 👉 <b>(6)</b></p>
             <table class="standard-table">
                 <thead>
                     <tr>
-                        <th style="width: 50%;">Names (Select Name)</th>
-                        <th style="width: 50%;">Numbers (Type number 1-9)</th>
+                        <th style="width: 50%;">Names</th>
+                        <th style="width: 50%;">Numbers (1-9)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><select class="p1-name-select" id="lp1_name_1" onchange="updatePart1Options()" required></select></td>
-                        <td><input type="text" id="lp1_num_1" placeholder="Nhập số từ hình..." required></td>
+                        <td><input type="text" id="lp1_num_1" placeholder="Type number..." required></td>
                     </tr>
                     <tr>
                         <td><select class="p1-name-select" id="lp1_name_2" onchange="updatePart1Options()" required></select></td>
-                        <td><input type="text" id="lp1_num_2" placeholder="Nhập số từ hình..." required></td>
+                        <td><input type="text" id="lp1_num_2" placeholder="Type number..." required></td>
                     </tr>
                     <tr>
                         <td><select class="p1-name-select" id="lp1_name_3" onchange="updatePart1Options()" required></select></td>
-                        <td><input type="text" id="lp1_num_3" placeholder="Nhập số từ hình..." required></td>
+                        <td><input type="text" id="lp1_num_3" placeholder="Type number..." required></td>
                     </tr>
                     <tr>
                         <td><select class="p1-name-select" id="lp1_name_4" onchange="updatePart1Options()" required></select></td>
-                        <td><input type="text" id="lp1_num_4" placeholder="Nhập số từ hình..." required></td>
+                        <td><input type="text" id="lp1_num_4" placeholder="Type number..." required></td>
                     </tr>
                     <tr>
                         <td><select class="p1-name-select" id="lp1_name_5" onchange="updatePart1Options()" required></select></td>
-                        <td><input type="text" id="lp1_num_5" placeholder="Nhập số từ hình..." required></td>
+                        <td><input type="text" id="lp1_num_5" placeholder="Type number..." required></td>
                     </tr>
                 </tbody>
             </table>
@@ -179,7 +181,7 @@
         <h2>Part 2 - 5 questions - Listen and write. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 2:</b></p>
-            <audio controls><source src="listening_part2.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+            <audio controls><source src="listening_part2.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
         </div>
         <div class="img-container">
             <img src="listening_part2.png" alt="Listening Part 2">
@@ -194,7 +196,7 @@
         <h2>Part 3 - 5 questions - Where did Uncle Robert get each of these things? Listen and write a letter in each box. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 3:</b></p>
-            <audio controls><source src="listening_part3.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+            <audio controls><source src="listening_part3.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
         </div>
         <div class="img-container">
             <img src="listening_part3.png" alt="Listening Part 3">
@@ -219,7 +221,7 @@
         <h2>Part 4 - 5 questions - Listen and tick the box. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 4:</b></p>
-            <audio controls><source src="listening_part4.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+            <audio controls><source src="listening_part4.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
         </div>
         <div class="img-container">
             <img src="listening_part4.png" alt="Listening Part 4">
@@ -266,58 +268,56 @@
         </div>
 
         <!-- PART 5 -->
-        <h2>Part 5 - 5 questions - Listen and color and write. There is one example.</h2>
+        <h2>Part 5 - 5 questions - Listen and colour and write. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 5:</b></p>
-            <audio controls><source src="listening_part5.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
+            <audio controls><source src="listening_part5.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
         </div>
         <div class="img-container">
             <img src="listening_part5.png" alt="Listening Part 5">
         </div>
         <div class="question-box">
-            <p><b>Nhìn hình và hoàn thành bảng ghi chú tô màu/viết chữ theo yêu cầu bài nghe:</b></p>
             <table class="standard-table">
                 <thead>
                     <tr>
-                        <th style="width: 50%;">Objects (Tên đồ vật/vị trí)</th>
-                        <th style="width: 50%;">Colors / Words (Màu sắc hoặc từ viết)</th>
+                        <th style="width: 50%;">Objects</th>
+                        <th style="width: 50%;">Colors</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><b>1. Suitcase on ground by hotel entrance</b></td>
-                        <td><input type="text" id="lp5_q1" placeholder="Nhập màu..." required></td>
+                        <td><input type="text" id="lp5_obj_1" placeholder="Type object..." required></td>
+                        <td><input type="text" id="lp5_col_1" placeholder="Type color..." required></td>
                     </tr>
                     <tr>
-                        <td><b>2. Board on front of boat</b></td>
-                        <td><input type="text" id="lp5_q2" placeholder="Nhập chữ viết..." required></td>
+                        <td><input type="text" id="lp5_obj_2" placeholder="Type object..." required></td>
+                        <td><input type="text" id="lp5_col_2" placeholder="Type color..." required></td>
                     </tr>
                     <tr>
-                        <td><b>3. Pocket on backpack</b></td>
-                        <td><input type="text" id="lp5_q3" placeholder="Nhập màu..." required></td>
+                        <td><input type="text" id="lp5_obj_3" placeholder="Type object..." required></td>
+                        <td><input type="text" id="lp5_col_3" placeholder="Type color..." required></td>
                     </tr>
                     <tr>
-                        <td><b>4. Board above hotel</b></td>
-                        <td><input type="text" id="lp5_q4" placeholder="Nhập chữ viết..." required></td>
+                        <td><input type="text" id="lp5_obj_4" placeholder="Type object..." required></td>
+                        <td><input type="text" id="lp5_col_4" placeholder="Type color..." required></td>
                     </tr>
                     <tr>
-                        <td><b>5. Flag in park by path</b></td>
-                        <td><input type="text" id="lp5_q5" placeholder="Nhập màu..." required></td>
+                        <td><input type="text" id="lp5_obj_5" placeholder="Type object..." required></td>
+                        <td><input type="text" id="lp5_col_5" placeholder="Type color..." required></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <button type="submit" class="btn-submit">Nộp bài & Xem đáp án chi tiết</button>
+        <button type="submit" class="btn-submit">Submit & View Detailed Results</button>
     </form>
     <div id="listeningResult" class="result-box"></div>
 </div>
 
 <script>
-    // Danh sách 6 lựa chọn tên cho Part 1
     const part1Names = ["Sally", "Harry", "Jane", "David", "Sarah", "Richard"];
-    // Danh sách đáp án A-H cho Part 3 (trừ E đã dùng ở Example)
-    const part3Letters = ["A", "B", "C", "D", "F", "G", "H"]; // E đã dùng làm ví dụ
+    // Đã bỏ E ra khỏi danh sách lựa chọn Part 3
+    const part3Letters = ["A", "B", "C", "D", "F", "G", "H"];
 
     function updatePart1Options() {
         const selects = document.querySelectorAll('.p1-name-select');
@@ -340,7 +340,7 @@
         let selectedValues = Array.from(selects).map(s => s.value).filter(v => v !== "");
         selects.forEach(select => {
             let currentValue = select.value;
-            let html = '<option value="">-- Choose (A-H) --</option>';
+            let html = '<option value="">-- Choose Letter (A-H, excl. E) --</option>';
             part3Letters.forEach(letter => {
                 if (!selectedValues.includes(letter) || currentValue === letter) {
                     let selectedAttr = (currentValue === letter) ? 'selected' : '';
@@ -362,52 +362,57 @@
         let total = 25;
         let feedbackHTML = "";
 
-        // Đáp án chuẩn từ Marking Key Cambridge
         const p1_ans = [
             {name: 'Richard', num: '9'},
             {name: 'Sally', num: '1'},
             {name: 'David', num: '5'},
             {name: 'Sarah', num: '8'},
             {name: 'Harry', num: '6'}
-        ]; // Tương ứng thứ tự 5 câu hỏi dựa trên vị trí chuẩn trong đề
+        ];
         
         const p2_ans = ['stars', 'moon', 'torch', 'dvd', 'bailey']; 
-        const p3_ans = ['b', 'g', 'h', 'f', 'd']; // Drums: B, Swan: G, Fan: H, Chocolates: F, Gloves: D
+        const p3_ans = ['b', 'g', 'h', 'f', 'd']; 
         const p4_ans = ['c', 'b', 'b', 'a', 'c']; 
-        const p5_ans = ['blue', 'sunny', 'orange', 'star', 'yellow'];
+        // Part 5 objects and colors mapping based on Cambridge key
+        const p5_ans = [
+            {obj: 'suitcase', col: 'blue'},
+            {obj: 'board', col: 'sunny'},
+            {obj: 'pocket', col: 'orange'},
+            {obj: 'board', col: 'star'},
+            {obj: 'flag', col: 'yellow'}
+        ];
 
-        // Chấm Part 1
+        // Part 1
         let p1_score = 0;
         for(let i=1; i<=5; i++) {
             let nVal = document.getElementById('lp1_name_'+i).value.trim().toLowerCase();
             let numVal = document.getElementById('lp1_num_'+i).value.trim();
-            // So khớp tên và số theo đáp án chuẩn
             if(nVal === p1_ans[i-1].name.toLowerCase() && numVal === p1_ans[i-1].num) {
                 p1_score++;
             }
         }
         score += p1_score;
-        feedbackHTML += `<div class="feedback-item"><b>Part 1:</b> Đúng ${p1_score}/5 câu. (Đáp án mẫu: Richard-9, Sally-1, David-5, Sarah-8, Harry-6)</div>`;
+        feedbackHTML += `<div class="feedback-item"><b>Part 1:</b> Score ${p1_score}/5. (Key: Richard-9, Sally-1, David-5, Sarah-8, Harry-6)</div>`;
 
-        // Chấm Part 2
+        // Part 2
         let p2_score = 0;
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp2_q'+i).value.trim().toLowerCase();
             if(val.includes(p2_ans[i-1])) p2_score++;
         }
         score += p2_score;
-        feedbackHTML += `<div class="feedback-item"><b>Part 2:</b> Đúng ${p2_score}/5 câu. (Đáp án: 1. stars, 2. moon, 3. torch, 4. DVD(s), 5. Bailey)</div>`;
+        feedbackHTML += `<div class="feedback-item"><b>Part 2:</b> Score ${p2_score}/5. (Key: 1. stars, 2. moon, 3. torch, 4. DVD(s), 5. Bailey)</div>`;
 
-        // Chấm Part 3
+        // Part 3
         let p3_score = 0;
         for(let i=1; i<=5; i++) {
             let val = document.getElementById('lp3_q'+i).value.trim().toLowerCase();
             if(val === p3_ans[i-1]) p3_score++;
         }
         score += p3_score;
-        feedbackHTML += `<div class="feedback-item"><b>Part 3:</b> Đúng ${p3_score}/5 câu. (Đáp án: Drums-B, Swan-G, Fan-H, Chocolates-F, Gloves-D)</div>`;
+        feedbackHTML += `<div class="feedback-item"><b>Part 3:</b> Score ${p3_score}/5. (Key: Drums-B, Swan-G, Fan-H, Chocolates-F, Gloves-D)</div>`;
 
-        // Chấm Part 4
+        // Part 4
         let p4_score = 0;
         for(let i=1; i<=5; i++) {
             let radios = document.getElementsByName('lp4_q'+i);
@@ -418,21 +423,24 @@
             }
         }
         score += p4_score;
-        feedbackHTML += `<div class="feedback-item"><b>Part 4:</b> Đúng ${p4_score}/5 câu. (Đáp án: 1. C, 2. B, 3. B, 4. A, 5. C)</div>`;
+        feedbackHTML += `<div class="feedback-item"><b>Part 4:</b> Score ${p4_score}/5. (Key: 1. C, 2. B, 3. B, 4. A, 5. C)</div>`;
 
-        // Chấm Part 5
+        // Part 5
         let p5_score = 0;
         for(let i=1; i<=5; i++) {
-            let val = document.getElementById('lp5_q'+i).value.trim().toLowerCase();
-            if(val.includes(p5_ans[i-1])) p5_score++;
+            let objVal = document.getElementById('lp5_obj_'+i).value.trim().toLowerCase();
+            let colVal = document.getElementById('lp5_col_'+i).value.trim().toLowerCase();
+            if(objVal.includes(p5_ans[i-1].obj) && colVal.includes(p5_ans[i-1].col)) {
+                p5_score++;
+            }
         }
         score += p5_score;
-        feedbackHTML += `<div class="feedback-item"><b>Part 5:</b> Đúng ${p5_score}/5 câu. (Đáp án: 1. blue, 2. SUNNY, 3. orange, 4. STAR, 5. yellow)</div>`;
+        feedbackHTML += `<div class="feedback-item"><b>Part 5:</b> Score ${p5_score}/5. (Key: 1. suitcase / blue, 2. board / SUNNY, 3. pocket / orange, 4. board / STAR, 5. flag / yellow)</div>`;
 
         const resBox = document.getElementById('listeningResult');
         resBox.style.display = 'block';
         resBox.className = 'result-box ' + (score >= 20 ? 'correct-summary' : 'incorrect-summary');
-        resBox.innerHTML = `<h3>📊 Tổng kết kết quả Listening: Đạt <b>${score}</b> / ${total} câu đúng</h3>` + feedbackHTML;
+        resBox.innerHTML = `<h3>📊 Total Listening Score: <b>${score}</b> / ${total}</h3>` + feedbackHTML;
     }
 </script>
 
