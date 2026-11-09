@@ -109,19 +109,18 @@
     <form id="listeningForm" onsubmit="checkListening(event)">
 
         <!-- PART 1 -->
-        <h2>Part 1 - 5 questions - Listen and draw lines. There is one example.</h2>
+        <h2>Part 1 - 5 questions - Listen and write the correct numbers to match the names. There is one example.</h2>
         <div class="audio-box">
             <p>🎧 <b>Audio Part 1:</b></p>
             <audio controls><source src="listening_part1.mp3" type="audio/mpeg">Trình duyệt của bạn không hỗ trợ audio.</audio>
         </div>
         <div class="img-container">
-            <img src="listening_part1.png" alt="Listening Part 1">
+            <img src="listening_part1A.png" alt="Listening Part 1">
         </div>
-        <div class="question-box"><p><b>1. Sally:</b> <input type="text" id="lp1_q1" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
-        <div class="question-box"><p><b>2. Harry:</b> <input type="text" id="lp1_q2" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
-        <div class="question-box"><p><b>3. Jane:</b> <input type="text" id="lp1_q3" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
-        <div class="question-box"><p><b>4. William:</b> <input type="text" id="lp1_q4" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
-        <div class="question-box"><p><b>5. David:</b> <input type="text" id="lp1_q5" placeholder="Nhập tên nhân vật trong tranh..." required></p></div>
+        <div class="question-box"><p><b>1. William:</b> <input type="text" id="lp1_q1" placeholder="Enter number (1-9)..." required></p></div>
+        <div class="question-box"><p><b>2. David:</b> <input type="text" id="lp1_q2" placeholder="Enter number (1-9)..." required></p></div>
+        <div class="question-box"><p><b>3. Sarah:</b> <input type="text" id="lp1_q3" placeholder="Enter number (1-9)..." required></p></div>
+        <div class="question-box"><p><b>4. Richard:</b> <input type="text" id="lp1_q4" placeholder="Enter number (1-9)..." required></p></div>
 
         <!-- PART 2 -->
         <h2>Part 2 - 5 questions - Listen and write. There is one example.</h2>
@@ -237,14 +236,15 @@
     function checkListening(event) {
         event.preventDefault();
         let score = 0;
-        let total = 25;
+        let total = 24;
 
+        const p1_ans = ['4', '5', '8', '9']; // Đáp án số thứ tự tương ứng ví dụ William, David, Sarah, Richard
         const p2_ans = ['stars', 'moon', 'telescope', 'videos', 'star']; 
         const p3_ans = ['h', 'c', 'g', 'd', 'b']; 
         const p4_ans = ['b', 'a', 'c', 'b', 'a']; 
         const p5_ans = ['red', 'blue', 'green', 'park', 'yellow'];
 
-        for(let i=1; i<=5; i++) {
+        for(let i=1; i<=4; i++) {
             if(document.getElementById('lp1_q'+i).value.trim() !== "") score++;
         }
         for(let i=1; i<=5; i++) {
